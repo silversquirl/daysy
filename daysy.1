@@ -1,0 +1,53 @@
+.TH DAYSY 1 "2018-03-08" "vktec" "General Commands Manual"
+.SH NAME
+daysy \- calculate the next nth weekday of the month
+.SH SYNOPSIS
+.B daysy
+.RB [ \-f
+.IR format ]
+.RB [ \-t
+.IR seconds ]
+.I n weekday
+.SH DESCRIPTION
+.B daysy
+is a very simple tool to calculate the date on which the
+.IR n th
+weekday of the month will fall.
+.SH OPTIONS
+.TP
+.BI \-f " format"
+Use
+.I format
+to display the calculated date and time. See strftime(3) for details. The
+default is %x which results in a locale-specific, "preferred" date format.
+.TP
+.BI \-t " seconds"
+Use
+.I seconds
+as the starting point instead of the current time. This should be a
+positive number of seconds since 00:00:00 on January 1st, 1970 which is
+the POSIX Epoch.
+.SH EXAMPLE
+Get the date of the next 2nd Saturday of the month:
+.PP
+.RS 4
+.nf
+.RB $ " daysy 2 6"
+03/10/18
+.fi
+.RE
+.PP
+Get the number of seconds since the Epoch of the next 4th Tuesday of the
+month, starting at the 28th of June 2018:
+.PP
+.RS 4
+.nf
+.RB $ " daysy -f '%s' -t ""$(date --date=2018-06-28 +%s)"" 4 2"
+1532386800
+.fi
+.RE
+.PP
+.SH SEE ALSO
+.ad l
+.nh
+.BR strftime "(3), " date (1)
