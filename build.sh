@@ -15,4 +15,6 @@ needs_rebuild() {
 
 needs_rebuild daysy.o daysy.c daysy.h && $cc -c daysy.c
 needs_rebuild libdaysy.a daysy.o && ar rcs libdaysy.a daysy.o
+needs_rebuild libdaysy.so daysy.o && $cc -shared -o libdaysy.so daysy.o
 needs_rebuild daysy main.c libdaysy.a daysy.h && $cc -o daysy main.c libdaysy.a
+true

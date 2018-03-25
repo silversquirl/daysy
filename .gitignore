@@ -1,3 +1,4 @@
 daysy
 *.o
 *.a
+*.so
