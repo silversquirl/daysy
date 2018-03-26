@@ -66,6 +66,6 @@ int main(int argc, char *argv[]) {
   }
 
   char buf[32];
-  size_t chars = strftime(buf, sizeof buf, format, &t);
+  int chars = strftime(buf, sizeof buf, format, &t);
   printf("%*s\n", chars, buf);
 }
